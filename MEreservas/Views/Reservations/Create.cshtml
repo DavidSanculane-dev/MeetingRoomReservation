@@ -1,0 +1,118 @@
+﻿@model MEreservas.Models.Reservation
+
+@{
+    ViewData["Title"] = "Nova Reserva";
+}
+
+<div class="container py-4" style="max-width: 780px;">
+    <h3 class="mb-3">
+        <i class="bi bi-plus-circle me-2"></i>Nova Reserva
+    </h3>
+    <hr />
+
+    @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- SALA -->
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Sala</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-door-closed"></i></span>
+                <select class="form-select" asp-for="RoomId" asp-items="ViewBag.Rooms"></select>
+            </div>
+            <span class="text-danger" asp-validation-for="RoomId"></span>
+        </div>
+
+        <!-- DATA E HORAS -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Data</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                    <input class="form-control" type="date"
+                           id="dataInput"
+                           value="@Model.Start.ToString("yyyy-MM-dd")"
+                           onchange="sync()" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label fw-semibold">Hora início</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                    <input class="form-control" type="time"
+                           id="inicioInput"
+                           value="@Model.Start.ToString("HH\\:mm")"
+                           onchange="sync()" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label fw-semibold">Hora fim</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-clock-history"></i></span>
+                    <input class="form-control" type="time"
+                           id="fimInput"
+                           value="@Model.End.ToString("HH\\:mm")"
+                           onchange="sync()" />
+                </div>
+            </div>
+        </div>
+
+        <!-- SOLICITANTE -->
+        <div class="mb-3">
+            <label class="form-label fw-semibold" asp-for="Requester">Solicitante</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input class="form-control" asp-for="Requester" placeholder="Nome do solicitante" />
+            </div>
+            <span class="text-danger" asp-validation-for="Requester"></span>
+        </div>
+
+        <!-- MOTIVO -->
+        <div class="mb-3">
+            <label class="form-label fw-semibold" asp-for="Subject">Motivo</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+                <input class="form-control" asp-for="Subject" placeholder="Motivo da reserva" />
+            </div>
+            <span class="text-danger" asp-validation-for="Subject"></span>
+        </div>
+
+        <!-- CAMPOS HIDDEN Start/End -->
+        <input type="hidden" asp-for="Start" id="startHidden" />
+        <input type="hidden" asp-for="End" id="endHidden" />
+
+        <hr />
+
+        <!-- BOTÕES -->
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-check-circle me-1"></i> Guardar
+            </button>
+
+            <a class="btn btn-secondary" href="@Url.Action("Index", "Reservations")">
+                <i class="bi bi-x-circle me-1"></i> Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+    function toIsoLocal(date, time) {
+        return new Date(date + 'T' + time + ':00').toISOString();
+    }
+
+    function sync() {
+        const date = document.getElementById('dataInput').value;
+        const hi = document.getElementById('inicioInput').value;
+        const hf = document.getElementById('fimInput').value;
+
+        document.getElementById('startHidden').value = toIsoLocal(date, hi);
+        document.getElementById('endHidden').value = toIsoLocal(date, hf);
+    }
+
+    document.addEventListener('DOMContentLoaded', sync);
+</script>

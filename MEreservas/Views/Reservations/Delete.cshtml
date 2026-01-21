@@ -1,0 +1,25 @@
+﻿@model MEreservas.Models.Reservation
+
+@{
+    ViewData["Title"] = "Apagar Reserva";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<p class="text-danger">Tem a certeza que deseja apagar esta reserva?</p>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Sala:</strong> @Model.Room?.Name</li>
+    <li class="list-group-item"><strong>Solicitante:</strong> @Model.Requester</li>
+    <li class="list-group-item"><strong>Motivo:</strong> @Model.Subject</li>
+    <li class="list-group-item"><strong>Início:</strong> @Model.Start.ToString("dd/MM/yyyy HH:mm")</li>
+    <li class="list-group-item"><strong>Fim:</strong> @Model.End.ToString("dd/MM/yyyy HH:mm")</li>
+</ul>
+
+<form asp-action="DeleteConfirmed" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mota-Engil</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MEreservas.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg shadow-sm" style="background-color:#003366;">
+            <div class="container-fluid">
+
+                <!-- LOGO + NOME DO SISTEMA -->
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Reservations" asp-action="Index">
+                    <img src="~/img/motaengil.png" alt="Mota‑Engil"
+                         class="me-2" style="height:42px; width:auto;">
+
+                    <span class="fw-bold text-white fs-5">
+                        Projecto Mina Moatize
+                    </span>
+                </a>
+
+                <!-- BOTÃO DO MENU (MOBILE) -->
+                <button class="navbar-toggler border-0 p-0" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+
+                <!-- LINKS DO MENU -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <!-- LINK: ABOUT -->
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-white d-flex align-items-center gap-1"
+                               asp-area="" asp-controller="Reservations" asp-action="About">
+                                <i class="bi bi-info-circle"></i>
+                                Acerca do Sistema
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+   
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+
+        <div class="container text-center py-2">
+            © 2026 — Criado com
+            <span style="color:red; font-size:1.2rem; animation:pulse 1.5s infinite;">❤</span>
+            por <strong>David Sanculane</strong>
+        </div>
+
+        <style>
+            @@keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.25);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+        </style>
+
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

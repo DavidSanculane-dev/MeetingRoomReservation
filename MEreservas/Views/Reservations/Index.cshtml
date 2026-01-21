@@ -1,0 +1,220 @@
+﻿@{
+    ViewData["Title"] = "Reservas";
+    Layout = "_Layout";
+}
+
+<!-- FullCalendar CSS/JS (CDN) — inclua APENAS uma vez -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<style>
+    /* Aparência mais “app” */
+    #calendar {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        padding: 12px;
+    }
+
+    .fc-toolbar-title {
+        font-weight: 600;
+    }
+
+    .legend-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
+
+    .legend-item {
+        margin-right: 16px;
+    }
+</style>
+
+
+<div class="container py-3">
+
+    <!-- Linha 1: Título + Botão Nova Reserva -->
+    <div class="d-flex flex-column mb-3">
+        <h3 class="mb-2">
+            <i class="bi bi-calendar-week me-2"></i> Reservas de Salas
+        </h3>
+
+        <a class="btn btn-primary w-auto" href="@Url.Action("Create", "Reservations")">
+            <i class="bi bi-plus-circle me-1"></i> + Nova Reserva
+        </a>
+    </div>
+
+    <!-- Linha 2: Filtro de Sala -->
+    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+
+        <div class="input-group" style="max-width: 300px;">
+            <span class="input-group-text"><i class="bi bi-door-closed"></i></span>
+            <select id="roomFilter" class="form-select">
+                <option value="">Todas as salas</option>
+
+                @{
+                    var rooms = ViewBag.Rooms as List<SelectListItem>;
+                    if (rooms != null)
+                    {
+                        foreach (var item in rooms)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+
+        <!-- Legenda -->
+        <div id="legend" class="ms-0 flex-grow-1"></div>
+    </div>
+
+    <!-- Calendário -->
+    <div id="calendar"></div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('calendar');
+        const roomFilter = document.getElementById('roomFilter');
+        const legendEl = document.getElementById('legend');
+
+        // Mapa de cores por sala (será preenchido dinamicamente com os eventos retornados)
+        const roomColors = {}; // roomId -> color
+
+        function renderLegend() {
+            legendEl.innerHTML = '';
+            for (const [roomId, info] of Object.entries(roomColors)) {
+                const span = document.createElement('span');
+                span.className = 'legend-item';
+                span.innerHTML = `<span class="legend-dot" style="background:${info.color}"></span>${info.name}`;
+                legendEl.appendChild(span);
+            }
+        }
+
+        // Constrói a URL do endpoint com filtros e janela visível
+        function getEventsUrl(fetchInfo) {
+            const params = new URLSearchParams();
+            params.set('start', fetchInfo.startStr);
+            params.set('end', fetchInfo.endStr);
+            const roomId = roomFilter.value;
+            if (roomId) params.set('roomId', roomId);
+            return `/api/reservations/events?${params.toString()}`;
+        }
+
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 'auto',
+            expandRows: true,
+            initialView: 'timeGridWeek',
+            firstDay: 1,                 // segunda-feira
+            slotMinTime: '07:00:00',
+            slotMaxTime: '19:00:00',
+            allDaySlot: false,
+            nowIndicator: true,
+            eventOverlap: true,         // mostrar sobreposições visuais (a validação é no backend)
+            locale: 'pt',
+            timeZone: 'local',
+            navLinks: true,
+            stickyHeaderDates: true,
+            dayMaxEventRows: true,
+
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'timeGridDay,timeGridWeek,dayGridMonth'
+            },
+
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia'
+            },
+
+            // Eventos via função para permitir aplicar o filtro de sala e construir legenda
+            events: function (fetchInfo, successCallback, failureCallback) {
+                const url = getEventsUrl(fetchInfo);
+                fetch(url, { method: 'GET' })
+                    .then(r => {
+                        if (!r.ok) throw new Error('Falha ao carregar eventos');
+                        return r.json();
+                    })
+                    .then(data => {
+                        // Esperado: [{ id, title, start, end, roomId, roomName, color }]
+                        // Construir mapa de cores por sala com base na resposta
+                        const newColors = {};
+                        data.forEach(e => {
+                            if (e.roomId && e.color) {
+                                newColors[e.roomId] = { color: e.color, name: e.roomName || ('Sala ' + e.roomId) };
+                            }
+                        });
+                        // Atualiza legenda somente se mudou
+                        const changed = JSON.stringify(newColors) !== JSON.stringify(roomColors);
+                        for (const k in roomColors) delete roomColors[k];
+                        Object.assign(roomColors, newColors);
+                        if (changed) renderLegend();
+
+                        successCallback(data);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert('Falha ao carregar eventos.');
+                        failureCallback(err);
+                    });
+            },
+
+            eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
+
+            // Clique no evento = editar
+            eventClick: function (info) {
+                // Previna abertura do popover por padrão
+                info.jsEvent.preventDefault();
+                window.location.href = '/Reservations/Edit/' + info.event.id;
+            },
+
+            // Duplo clique em espaço vazio (dateClick) para criar com data/hora predefinidas
+            dateClick: function (info) {
+                const start = info.date;
+                // Define fim +1h por padrão
+                const end = new Date(start.getTime() + 60 * 60 * 1000);
+                // Redireciona para Create com query (se quiseres pré-preencher via querystring)
+                const qs = new URLSearchParams({
+                    start: start.toISOString(),
+                    end: end.toISOString()
+                });
+                window.location.href = '/Reservations/Create?' + qs.toString();
+            },
+
+            // Tooltip simples (title + horas)
+            eventDidMount: function (info) {
+                const ev = info.event;
+                const title = ev.title || '';
+                const start = ev.start ? ev.start.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }) : '';
+                const end = ev.end ? ev.end.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }) : '';
+                // Acrescenta sala no tooltip se disponível
+                const roomName = ev.extendedProps?.roomName ? `\nSala: ${ev.extendedProps.roomName}` : '';
+                info.el.title = `${title}\n${start} - ${end}${roomName}\nClique para editar`;
+            },
+
+            loading: function (isLoading) {
+                if (isLoading) {
+                    calendarEl.style.opacity = '0.6';
+                } else {
+                    calendarEl.style.opacity = '1';
+                }
+            }
+        });
+
+        calendar.render();
+
+        // Recarrega quando muda o filtro de sala
+        roomFilter.addEventListener('change', function () {
+            calendar.refetchEvents();
+        });
+    });
+</script>
+        
