@@ -21,12 +21,6 @@ namespace MEreservas.Controllers
             _db = db; _service = service; _ctx = context;
         }
 
-        //public IActionResult Index()
-        //{
-        //    ViewBag.Rooms = new SelectList(_db.Rooms.AsNoTracking().ToList(), "Id", "Name");
-        //    return View();
-        //}
-
 
         public async Task<IActionResult> Index()
         {

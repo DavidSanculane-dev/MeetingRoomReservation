@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -17,18 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|solutionrelative:views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7750DDD-DB97-C966-4AB4-1445E71453E6}|MEreservas.csproj|c:\\users\\david.sanculane\\onedrive - mota-engil\\ambiente de trabalho\\projectos software\\meetingroomreservation\\mereservas\\views\\reservations\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -70,11 +70,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ReservationsApiController.cs",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Controllers\\Api\\ReservationsApiController.cs",
               "RelativeDocumentMoniker": "Controllers\\Api\\ReservationsApiController.cs",
@@ -87,33 +87,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Reservations\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Edit.cshtml",
               "ToolTip": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Reservations\\Edit.cshtml",
               "RelativeToolTip": "Views\\Reservations\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-21T17:22:14.657Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ReservationsController.cs",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Controllers\\ReservationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
               "ToolTip": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Controllers\\ReservationsController.cs",
               "RelativeToolTip": "Controllers\\ReservationsController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAADwvxsAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAUwDUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T14:15:53.819Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Reservations\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Index.cshtml",
@@ -126,20 +126,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Reservations\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Create.cshtml",
               "ToolTip": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Reservations\\Create.cshtml",
               "RelativeToolTip": "Views\\Reservations\\Create.cshtml",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAEEAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHUAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-20T14:21:55.649Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ReservationService.cs",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Services\\ReservationService.cs",
               "RelativeDocumentMoniker": "Services\\ReservationService.cs",
@@ -152,13 +152,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\david.sanculane\\OneDrive - Mota-Engil\\Ambiente de Trabalho\\PROJECTOS SOFTWARE\\MeetingRoomReservation\\MEreservas\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwDYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-21T13:09:29.863Z",
               "EditorCaption": ""

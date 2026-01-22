@@ -102,7 +102,7 @@
 
 <script>
     function toIsoLocal(date, time) {
-        return new Date(date + 'T' + time + ':00').toISOString();
+        return date + 'T' + time + ':00';
     }
 
     function sync() {
@@ -115,4 +115,5 @@
     }
 
     document.addEventListener('DOMContentLoaded', sync);
+    document.querySelector("form").addEventListener("submit", sync);
 </script>
