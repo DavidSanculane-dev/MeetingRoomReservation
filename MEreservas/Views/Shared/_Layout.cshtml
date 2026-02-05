@@ -37,6 +37,9 @@
 
                     <ul class="navbar-nav ms-auto align-items-lg-center">
 
+
+                       
+
                         <!-- LINK: ABOUT -->
                         <li class="nav-item">
                             <a class="nav-link fw-semibold text-white d-flex align-items-center gap-1"
@@ -45,6 +48,21 @@
                                 Acerca do Sistema
                             </a>
                         </li>
+
+
+                        <li class="nav-item d-flex align-items-center">
+                            @{
+                                var user = User.Identity?.Name ?? "";
+                                var nomeCompleto = user.Contains("\\") ? user.Split('\\')[1] : user;
+                                var nomeFormatado = nomeCompleto.Replace(".", " ");
+                            }
+
+                            <span class="nav-link fw-semibold text-white d-flex align-items-center gap-1">
+                                <i class="bi bi-person-circle"></i>
+                                Olá, @nomeFormatado
+                            </span>
+                        </li>
+
 
                     </ul>
                 </div>

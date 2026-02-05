@@ -1,5 +1,9 @@
 ﻿{
-  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": true,
+    "anonymousAuthentication": false
+  },
+
   "profiles": {
     "http": {
       "commandName": "Project",
@@ -10,6 +14,6 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
-   
   }
 }
+

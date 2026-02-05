@@ -1,8 +1,16 @@
 using MEreservas.Data;
 using MEreservas.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Server.IISIntegration;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(IISDefaults.AuthenticationScheme);
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
 
@@ -12,6 +20,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<ReservationService>();
 
 var app = builder.Build();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 // Criar DB/Seed
 using (var scope = app.Services.CreateScope())

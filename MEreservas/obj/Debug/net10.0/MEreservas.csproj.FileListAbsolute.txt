@@ -214,4 +214,3 @@ C:\Users\david.sanculane\OneDrive - Mota-Engil\Ambiente de Trabalho\PROJECTOS SO
 C:\Users\david.sanculane\OneDrive - Mota-Engil\Ambiente de Trabalho\PROJECTOS SOFTWARE\MeetingRoomReservation\MEreservas\obj\Debug\net10.0\MEreservas.csproj.Up2Date
 C:\Users\david.sanculane\OneDrive - Mota-Engil\Ambiente de Trabalho\PROJECTOS SOFTWARE\MeetingRoomReservation\MEreservas\bin\Debug\net10.0\dotnet-tools.json
 C:\Users\david.sanculane\OneDrive - Mota-Engil\Ambiente de Trabalho\PROJECTOS SOFTWARE\MeetingRoomReservation\MEreservas\obj\Debug\net10.0\MEreservas.sourcelink.json
-C:\Users\david.sanculane\OneDrive - Mota-Engil\Ambiente de Trabalho\PROJECTOS SOFTWARE\MeetingRoomReservation\MEreservas\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

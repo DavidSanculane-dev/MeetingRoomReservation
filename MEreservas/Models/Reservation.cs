@@ -23,5 +23,7 @@ namespace MEreservas.Models
         [StringLength(200)]
         public string Subject { get; set; } = ""; // Motivo
 
+
+
     }
 }
