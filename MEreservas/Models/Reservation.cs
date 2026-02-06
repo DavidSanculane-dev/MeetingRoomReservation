@@ -23,7 +23,7 @@ namespace MEreservas.Models
         [StringLength(200)]
         public string Subject { get; set; } = ""; // Motivo
 
-
+        public string CreatedBy { get; set; } = default!; // Utilizador que criou a reserva
 
     }
 }

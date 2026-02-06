@@ -19,6 +19,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<ReservationService>();
 
+builder.Services.AddSingleton<MasterPasswordService>();
+
 var app = builder.Build();
 
 app.UseAuthentication();
